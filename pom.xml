@@ -15,6 +15,10 @@
         <jar.target>1.7</jar.target>
   		<alibaba.fastjson.version>1.2.29</alibaba.fastjson.version>
   		<servlet.version>3.0.1</servlet.version>
+  		<junit.version>4.12</junit.version>
+		<!--todo 这里跑单测的时候需要关闭，但是上线前要记得打开-->
+        <maven.test.skip>false</maven.test.skip>
+  		<mockito-core.version>2.1.0</mockito-core.version>
   </properties>
   
   <dependencyManagement>
@@ -138,6 +142,19 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet.version}</version>
+            </dependency>
+            <!-- junit -->
+             <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- mockito -->
+             <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito-core.version}</version>
             </dependency>
 		</dependencies>
   </dependencyManagement>
