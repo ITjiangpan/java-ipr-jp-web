@@ -5,11 +5,9 @@
   <parent>
     <groupId>com.ipr.jp</groupId>
     <artifactId>ipr-jp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${ipr-jp.version}</version>
   </parent>
-  <groupId>com.ipr.jp</groupId>
   <artifactId>ipr-jp-test</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <name>ipr-jp-test</name>
   <url>http://maven.apache.org</url>
   <properties>

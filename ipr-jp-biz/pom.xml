@@ -20,5 +20,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.ipr.jp</groupId>
+    	<artifactId>ipr-jp-common</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>com.ipr.jp</groupId>
+    	<artifactId>ipr-jp-dao</artifactId>
+    </dependency>
   </dependencies>
 </project>

@@ -5,13 +5,11 @@
   <parent>
     <groupId>com.ipr.jp</groupId>
     <artifactId>ipr-jp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>${ipr-jp.version}</version>
   </parent>
-  <groupId>com.ipr.jp</groupId>
   <artifactId>ipr-jp-web</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>ipr-jp-web Maven Webapp</name>
+  <name>ipr-jp-web</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -20,8 +18,89 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.ipr.jp</groupId>
+    	<artifactId>ipr-jp-service</artifactId>
+    </dependency>
   </dependencies>
   <build>
-    <finalName>ipr-jp-web</finalName>
+    	<finalName>ipr-jp-web</finalName>
+        <!-- 默认的主代码目录 -->
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <!-- 默认的测试代码目录 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp/WEB-INF</directory>
+                <excludes>
+                    <exclude>**.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jar.source}</source>
+                    <target>${jar.target}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>ipr-jp-web</warName>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>WEB-INF/**.xml</include>
+                            </includes>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+            <!--add maven jetty plugin to developemet-->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.0.RC0</version>
+
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>8087</port>
+                    </httpConnector>
+                    <scanTargetPatterns>
+                        <scanTargetPattern>
+                            <directory>src/main/webapp</directory>
+                            <includes>
+                                <include>**/*.xml</include>
+                                <include>**/*.properties</include>
+                            </includes>
+                        </scanTargetPattern>
+                    </scanTargetPatterns>
+                </configuration>
+            </plugin>
+        </plugins>
   </build>
 </project>
