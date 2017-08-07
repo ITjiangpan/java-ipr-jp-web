@@ -23,6 +23,11 @@
         </layout>  
     </appender>   
 
+	<logger name="com.ipr.jp.dao" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="console" />
+        <appender-ref ref="dailyRollingFile" />
+    </logger>
  	<logger name="com.ipr.jp.service" additivity="false">
         <level value="DEBUG" />
         <appender-ref ref="console" />

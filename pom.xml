@@ -19,6 +19,13 @@
 		<!--todo 这里跑单测的时候需要关闭，但是上线前要记得打开-->
         <maven.test.skip>false</maven.test.skip>
   		<mockito-core.version>2.1.0</mockito-core.version>
+  		<mybatis.version>3.4.2</mybatis.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mysql-connector.version>5.1.38</mysql-connector.version>
+        <alibaba.druid.version>1.0.15</alibaba.druid.version>
+        <github.pagehelper.version>4.1.2</github.pagehelper.version>
+        <mybatis-generator-core.version>1.3.5</mybatis-generator-core.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
   <dependencyManagement>
@@ -155,6 +162,40 @@
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito-core.version}</version>
+            </dependency>
+            <!-- mybatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+            <dependency>
+            	<groupId>org.mybatis.generator</groupId>
+            	<artifactId>mybatis-generator-core</artifactId>
+            	<version>${mybatis-generator-core.version}</version>
+            	<scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector.version}</version>
+            </dependency>
+
+            <!--druid数据源-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${alibaba.druid.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${github.pagehelper.version}</version>
             </dependency>
 		</dependencies>
   </dependencyManagement>

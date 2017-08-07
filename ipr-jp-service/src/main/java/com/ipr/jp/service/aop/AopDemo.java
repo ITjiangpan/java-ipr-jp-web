@@ -21,7 +21,7 @@ public class AopDemo {
 
 	private static final Logger logger = LoggerFactory.getLogger(AopDemo.class);
 	
-	@Pointcut("execution(* com.ipr.jp..*.*(..))")
+	@Pointcut("execution(* com.ipr.jp.service..*.*(..))")
 	public void AopTest(){
 		
 	}
