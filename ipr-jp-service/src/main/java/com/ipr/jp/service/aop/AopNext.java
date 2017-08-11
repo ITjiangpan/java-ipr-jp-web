@@ -11,28 +11,20 @@ import org.springframework.stereotype.Component;
 /**     
  *
  * @author jiangpan 
- * @title AopDemo.java
- * @date 2017年8月3日 
+ * @title AopNext.java
+ * @date 2017年8月11日 
  *     
  */
 @Aspect
 @Component
-@Order(1)
-public class AopDemo {
+@Order(2)
+public class AopNext {
 
-	private static final Logger logger = LoggerFactory.getLogger(AopDemo.class);
-	
-	/*@Pointcut("execution(* com.ipr.jp.service..*.*(..))")
-	public void AopTest(){
-		
-	}*/
-	
+	private static final Logger logger = LoggerFactory.getLogger(AopNext.class);
 	@Around("execution(* com.ipr.jp.service..*.*(..))")
 	public void around(ProceedingJoinPoint pjp) throws Throwable{
-		logger.info("aop one start...");
-		//执行方法
+		logger.info("aop two start...");
 		pjp.proceed();
-		
-		logger.info("aop one end...");
+		logger.info("aop two end...");
 	}
 }
