@@ -11,12 +11,13 @@
    
    	<!-- 启用注解配置切面 -->
     <aop:aspectj-autoproxy />
-    <context:annotation-config />
+    <!-- 扫描除了controller的bean -->
     <context:component-scan base-package="com.ipr.jp" >
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    
+    <!-- mybatis数据源配置 -->
     <import resource="classpath*:mybatis/action-data-source.xml"/>
+    <!-- 添加配置文件 -->
     <bean id="propertyConfigurer"
               class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
            <property name="locations">
@@ -25,6 +26,7 @@
                   </list>
            </property>
     </bean>
+    <!-- 系统切面配置 -->
     <aop:config>
     	<aop:pointcut id="aopthree" expression="execution(* com.ipr.jp.service.*.*.*(..))"/>
     	<aop:aspect ref="aopXml" order="3">
