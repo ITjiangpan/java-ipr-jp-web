@@ -23,6 +23,12 @@
                   </list>
            </property>
     </bean>
+    <aop:config>
+    	<aop:pointcut id="aopthree" expression="execution(* com.ipr.jp.service.*.*.*(..))"/>
+    	<aop:aspect ref="aopXml" order="3">
+    		<aop:around method="around" pointcut-ref="aopthree"/>
+    	</aop:aspect>
+    </aop:config>
     
     <!-- <bean id="xmlAdvice" class="com.ipr.jp.service.impl.XmlAdvice"/>  
         <aop:aspect id="aspect" ref="xmlAdvice">  
